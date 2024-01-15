@@ -8,9 +8,8 @@ public class Product {
     private String brand;
     private String color;
 
-    private Product(String name, String description, double price) {
+    private Product(String name, double price) {
         this.name = name;
-        this.description = description;
         this.price = price;
     }
 
@@ -22,9 +21,12 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
     public double getPrice() {
         return price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setStock(int stock) {
@@ -88,7 +90,8 @@ public class Product {
 
         // Gerçek nesneyi oluşturan metot
         public Product build() {
-            Product product = new Product(name, description, price);
+            Product product = new Product(name, price);
+            product.setDescription(description);
             product.setStock(stock);
             product.setBrand(brand);
             product.setColor(color);
